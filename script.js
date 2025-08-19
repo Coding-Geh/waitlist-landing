@@ -1,0 +1,13 @@
+const dict={en:{brand:"CodingGeh",title:"We are launching soon",subtitle:"Join the waitlist to get early access and exclusive updates.",d:"Days",h:"Hours",m:"Minutes",s:"Seconds",cta:"Notify me",ok:"Thanks! You're on the list.",err:"Please enter a valid email."},id:{brand:"CodingGeh",title:"Kami segera meluncur",subtitle:"Gabung waitlist untuk dapat akses awal dan update eksklusif.",d:"Hari",h:"Jam",m:"Menit",s:"Detik",cta:"Beritahu saya",ok:"Terima kasih! Kamu masuk daftar.",err:"Masukkan email yang valid."}};
+const root=document.documentElement;const KT="theme-preference", KL="lang-preference";
+function setLang(l){const d=dict[l]||dict.en;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');el.textContent=d[k]||el.textContent});document.documentElement.lang=l;document.getElementById('langToggle').textContent=l.toUpperCase();}
+(()=>{const saved=localStorage.getItem(KT); if(saved) root.setAttribute('data-theme',saved); document.getElementById('themeToggle').onclick=()=>{const cur=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',cur);localStorage.setItem(KT,cur)}})();
+(()=>{const qs=new URLSearchParams(location.search);const qp=qs.get('lang');const saved=localStorage.getItem(KL);const nav=(navigator.languages?.[0]||navigator.language||'en').toLowerCase().split('-')[0];const l=['en','id'].includes(qp)?qp:['en','id'].includes(saved)?saved:['en','id'].includes(nav)?nav:'en';setLang(l);document.getElementById('langToggle').onclick=()=>{const n=document.documentElement.lang==='en'?'id':'en';localStorage.setItem(KL,n);setLang(n)}})();
+document.getElementById('year').textContent=String(new Date().getFullYear());
+
+// Countdown (set launch date ~30 days from now)
+(function countdown(){const t=Date.now()+30*24*60*60*1000;const dE=document.getElementById('d'),hE=document.getElementById('h'),mE=document.getElementById('m'),sE=document.getElementById('s');function upd(){const diff=Math.max(0, t-Date.now());const s=Math.floor(diff/1000);const d=Math.floor(s/86400);const h=Math.floor((s%86400)/3600);const m=Math.floor((s%3600)/60);const ss=s%60;dE.textContent=d;hE.textContent=h;mE.textContent=m;sE.textContent=ss}upd();setInterval(upd,1000)})();
+
+// Simple Form (client-only demo; replace action with Formspree to make live)
+(function form(){const f=document.getElementById('waitlistForm');const st=document.getElementById('status');if(!f) return;f.addEventListener('submit',(e)=>{e.preventDefault();const email=(new FormData(f).get('email')||'').toString().trim();if(!/.+@.+\..+/.test(email)){st.textContent=dict[document.documentElement.lang].err;return;}st.textContent=dict[document.documentElement.lang].ok;f.reset();});})();
+

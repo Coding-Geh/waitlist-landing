@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CodingGeh — Waitlist</title>
+    <meta name="description" content="Join the waitlist and be the first to know when we launch." />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="CodingGeh" />
+    <meta name="theme-color" content="#6c5ce7" />
+    <link rel="canonical" href="https://coding-geh.github.io/waitlist-landing/" />
+    <link rel="alternate" hreflang="en" href="https://coding-geh.github.io/waitlist-landing/?lang=en" />
+    <link rel="alternate" hreflang="id" href="https://coding-geh.github.io/waitlist-landing/?lang=id" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CodingGeh" />
+    <meta property="og:title" content="CodingGeh — Waitlist" />
+    <meta property="og:description" content="Join the waitlist and be the first to know when we launch." />
+    <meta property="og:url" content="https://coding-geh.github.io/waitlist-landing/" />
+    <meta property="og:image" content="og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CodingGeh — Waitlist" />
+    <meta name="twitter:description" content="Join the waitlist." />
+    <meta name="twitter:image" content="og-image.svg" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23433cff'/><text x='50' y='58' font-size='42' text-anchor='middle' fill='%23fff' font-family='Arial'>C</text></svg>">
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CodingGeh — Waitlist",
+      "url": "https://coding-geh.github.io/waitlist-landing/"
+    }</script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <a class="brand" href="#">CodingGeh</a>
+        <div class="actions">
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+          <button id="langToggle" class="lang-btn" aria-label="Switch language">EN</button>
+        </div>
+      </header>
+      <section class="hero">
+        <h1 data-i18n="title">We are launching soon</h1>
+        <p class="lead" data-i18n="subtitle">Join the waitlist to get early access and exclusive updates.</p>
+        <div class="countdown" aria-live="polite">
+          <div class="ct"><span id="d">0</span><small data-i18n="d">Days</small></div>
+          <div class="ct"><span id="h">0</span><small data-i18n="h">Hours</small></div>
+          <div class="ct"><span id="m">0</span><small data-i18n="m">Minutes</small></div>
+          <div class="ct"><span id="s">0</span><small data-i18n="s">Seconds</small></div>
+        </div>
+        <form id="waitlistForm" class="form" action="#" method="post" novalidate>
+          <input type="email" name="email" placeholder="email@example.com" aria-label="Email" required />
+          <button class="btn" type="submit" data-i18n="cta">Notify me</button>
+        </form>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+      <footer class="footer">© <span id="year"></span> <span data-i18n="brand">CodingGeh</span></footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+

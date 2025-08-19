@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://coding-geh.github.io/waitlist-landing/sitemap.xml
+
+
